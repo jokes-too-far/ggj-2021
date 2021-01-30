@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/wood.png" type="Texture" id=1]
 [ext_resource path="res://assets/slaf_title.png" type="Texture" id=2]
 [ext_resource path="res://assets/new.png" type="Texture" id=3]
 [ext_resource path="res://assets/credits.png" type="Texture" id=4]
 [ext_resource path="res://Main Title.gd" type="Script" id=5]
+[ext_resource path="res://Button.gd" type="Script" id=6]
 
-[node name="Main Game Node" type="MarginContainer"]
+[node name="MainGameNode" type="MarginContainer"]
 margin_right = 1200.0
 margin_bottom = 1168.0
 script = ExtResource( 5 )
@@ -14,41 +15,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main Title" type="TextureRect" parent="."]
+[node name="MainTitle" type="TextureRect" parent="."]
 margin_right = 1200.0
 margin_bottom = 1168.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main Title"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainTitle"]
 margin_right = 730.0
 margin_bottom = 456.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="Main Title/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MainTitle/HBoxContainer"]
 margin_right = 470.0
 margin_bottom = 456.0
 
-[node name="Title Image" type="TextureRect" parent="Main Title/HBoxContainer/CenterContainer"]
+[node name="Title Image" type="TextureRect" parent="MainTitle/HBoxContainer/CenterContainer"]
 margin_right = 470.0
 margin_bottom = 456.0
 texture = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main Title/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTitle/HBoxContainer"]
 margin_left = 474.0
-margin_right = 730.0
+margin_right = 742.0
 margin_bottom = 456.0
 
-[node name="New" type="TextureRect" parent="Main Title/HBoxContainer/VBoxContainer"]
-margin_right = 256.0
-margin_bottom = 128.0
-texture = ExtResource( 3 )
+[node name="Button" type="Button" parent="MainTitle/HBoxContainer/VBoxContainer"]
+margin_right = 268.0
+margin_bottom = 134.0
+icon = ExtResource( 3 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Credits" type="TextureRect" parent="Main Title/HBoxContainer/VBoxContainer"]
-margin_top = 132.0
-margin_right = 256.0
-margin_bottom = 260.0
+[node name="Credits" type="TextureRect" parent="MainTitle/HBoxContainer/VBoxContainer"]
+margin_top = 138.0
+margin_right = 268.0
+margin_bottom = 266.0
 texture = ExtResource( 4 )

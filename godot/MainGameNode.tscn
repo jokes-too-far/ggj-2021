@@ -42,11 +42,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147055, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303087, 0.262284, 0 )
 shape = SubResource( 3 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Main Title Control" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main Game Node" parent="Control" instance=ExtResource( 2 )]
+[node name="Main Title" parent="Main Title Control" instance=ExtResource( 2 )]
