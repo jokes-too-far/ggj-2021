@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Button.gd" type="Script" id=1]
-[ext_resource path="res://Main Title.gd" type="Script" id=2]
 [ext_resource path="res://assets/slaf_title.png" type="Texture" id=3]
 [ext_resource path="res://assets/credits.png" type="Texture" id=4]
 [ext_resource path="res://assets/new.png" type="Texture" id=5]
@@ -12,7 +11,6 @@
 [node name="MainGameNode" type="MarginContainer" parent="."]
 margin_right = 1200.0
 margin_bottom = 1168.0
-script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
