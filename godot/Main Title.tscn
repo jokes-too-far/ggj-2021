@@ -5,49 +5,49 @@
 [ext_resource path="res://assets/new.png" type="Texture" id=3]
 [ext_resource path="res://assets/credits.png" type="Texture" id=4]
 
-[node name="Main Title" type="MarginContainer"]
-margin_left = 120.0
+[node name="Main Game Node" type="MarginContainer"]
+margin_left = 122.0
 margin_top = 80.0
-margin_right = 883.0
-margin_bottom = 573.0
+margin_right = 938.0
+margin_bottom = 1168.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 763.0
-margin_bottom = 493.0
+[node name="Main Title" type="TextureRect" parent="."]
+margin_right = 816.0
+margin_bottom = 1088.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Title"]
 margin_right = 730.0
 margin_bottom = 456.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="TextureRect/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Main Title/HBoxContainer"]
 margin_right = 470.0
 margin_bottom = 456.0
 
-[node name="Title Image" type="TextureRect" parent="TextureRect/HBoxContainer/CenterContainer"]
+[node name="Title Image" type="TextureRect" parent="Main Title/HBoxContainer/CenterContainer"]
 margin_right = 470.0
 margin_bottom = 456.0
 texture = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Title/HBoxContainer"]
 margin_left = 474.0
 margin_right = 730.0
 margin_bottom = 456.0
 
-[node name="New" type="TextureRect" parent="TextureRect/HBoxContainer/VBoxContainer"]
+[node name="New" type="TextureRect" parent="Main Title/HBoxContainer/VBoxContainer"]
 margin_right = 256.0
 margin_bottom = 128.0
 texture = ExtResource( 3 )
 
-[node name="Credits" type="TextureRect" parent="TextureRect/HBoxContainer/VBoxContainer"]
+[node name="Credits" type="TextureRect" parent="Main Title/HBoxContainer/VBoxContainer"]
 margin_top = 132.0
 margin_right = 256.0
 margin_bottom = 260.0
