@@ -15,7 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GGJ 2021"
+config/name="Sloshed And Found"
+config/description="Global Game Jam 2021 - Theme:  Lost and Found"
 run/main_scene="res://MainMenuScene.tscn"
 config/icon="res://icon.png"
 
