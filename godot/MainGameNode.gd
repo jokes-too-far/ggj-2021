@@ -46,20 +46,40 @@ func _initializeScenarios():
 	
 	var sunglassesObject = {
 		type = "sunglasses",
-		descr = ["loud","stripey", "important", "scratchy", "warm"],
+		descr = ["a head-thingy","expensive", "pinchy", "hard", "breakable"],
 		color = colorOptions[_getRandInt(colorOptions.size())],
 		nodePath="SunglassesSpatial/sunglasses/Sphere"
 	}
 	
-	_setColor(tubaObject)
-	_setColor(pantsObject)
-	_setColor(sunglassesObject)
-	var Scenarios = [tubaObject, pantsObject, sunglassesObject]
+	var earringObject = {
+		type = "earring",
+		descr = ["a head-thingy","ringy", "shiny", "the other one", "breakable"],
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="EarringSpatial/earring/earring"
+	}
+	
+	
+	var Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject]
+	for x in Scenarios:
+		_setColor(x)
+		x.descr = _shuffleList(x.descr)
+	
 	#When we have multiple objects
 	desiredObject = Scenarios[_getRandInt(Scenarios.size())]
 	
 	#desiredObject = tubaObject #because we have 1 option right now
 	
+func _shuffleList(list):
+	var shuffledList = []
+	var indexList = range(list.size())
+	for i in range(list.size()):
+		randomize()
+		var x = randi()%indexList.size()
+		shuffledList.append(list[x])
+		indexList.remove(x)
+		list.remove(x)
+	return shuffledList
+		
 func _displayLostItemPrompt():
 	promptCount = promptCount+1
 	var descrPrompt = dialogMadlibs[_getRandInt(dialogMadlibs.size())]
