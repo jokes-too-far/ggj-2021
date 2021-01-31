@@ -4,7 +4,6 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var Scenarios = []
 var dialogMadlibs = [
 	"You know, it's that thing that's...umm...",
 	"I think it'sh",
@@ -42,10 +41,15 @@ func _initializeScenarios():
 	var pantsObject = {
 		type = "pants",
 		descr = ["loud","stripey", "important", "scratchy", "warm"],
-		color = colorOptions[_getRandInt(colorOptions.size())],
+		color = "green",
 		nodePath="TubaSpatial/TubaMesh/tuba/SketchUp"
 	}
-	desiredObject = tubaObject #because we have 1 option right now
+	
+	var Scenarios = [tubaObject, pantsObject]
+	#When we have multiple objects
+	desiredObject = Scenarios[_getRandInt(Scenarios.size())]
+	
+	#desiredObject = tubaObject #because we have 1 option right now
 	
 func _displayLostItemPrompt():
 	promptCount = promptCount+1
@@ -85,3 +89,5 @@ func _chooseItem(type):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+

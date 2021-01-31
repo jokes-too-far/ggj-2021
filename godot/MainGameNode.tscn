@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://MainGameNode.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/texture_bricks.jpg" type="Texture" id=8]
 [ext_resource path="res://assets/texture_wood.png" type="Texture" id=9]
+[ext_resource path="res://plaidpants.glb" type="PackedScene" id=10]
+[ext_resource path="res://PantsSpatial.gd" type="Script" id=11]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 60, 2, 60 )
@@ -34,6 +36,8 @@ size = Vector3( 0.4, 1.6, 6 )
 [sub_resource type="SpatialMaterial" id=8]
 albedo_texture = ExtResource( 8 )
 uv1_scale = Vector3( 40, 8, 1 )
+
+[sub_resource type="CylinderShape" id=9]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -93,4 +97,18 @@ skin = SubResource( 7 )
 material/0 = SubResource( 8 )
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="PantsSpatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.861162, -0.0619614, 1.11417 )
+script = ExtResource( 11 )
+
+[node name="plaidpants" parent="PantsSpatial" instance=ExtResource( 10 )]
+transform = Transform( -0.0102658, 0, 0.299824, 0, 0.3, 0, -0.299824, 0, -0.0102658, -0.55387, 1.84558, 0.507865 )
+
+[node name="Area" type="Area" parent="PantsSpatial/plaidpants"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PantsSpatial/plaidpants/Area"]
+transform = Transform( 1, 0, 3.72529e-09, 0, 1.75, 0, -3.72529e-09, 0, 1, 0, -1.30841, 0 )
+shape = SubResource( 9 )
 [connection signal="input_event" from="TubaSpatial/TubaMesh/Area" to="TubaSpatial" method="_on_Area_input_event"]
+[connection signal="input_event" from="PantsSpatial/plaidpants/Area" to="PantsSpatial" method="_on_Area_input_event"]
