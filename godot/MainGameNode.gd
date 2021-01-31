@@ -16,6 +16,7 @@ func _ready():
 	var b = rand_range(0.0, 1.0)
 	material.albedo_color = Color(0.1, 0.5, 1)
 	get_node("TubaSpatial/TubaMesh/tuba/SketchUp").set_surface_material(0, material)
+	$HUD.show_Message("Welcome to level 1")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
