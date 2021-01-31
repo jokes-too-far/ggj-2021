@@ -13,6 +13,8 @@ func _ready():
 func show_Message(text):
 	$Message.text = text
 
+func set_Score(text):
+	get_node("ScoreBox/HBoxContainer/Score").text = text
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
