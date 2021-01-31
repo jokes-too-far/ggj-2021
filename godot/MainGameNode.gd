@@ -34,19 +34,27 @@ func _initializeScenarios():
 		type = "tuba",
 		descr = ["loud","shiny", "hard", "big", "breakable"],
 		color = colorOptions[_getRandInt(colorOptions.size())],
-		nodePath="TubaSpatial/TubaMesh/tuba"
+		nodePath="TubaSpatial/TubaMesh/tuba/SketchUp"
 	}
 	
 	var pantsObject = {
 		type = "pants",
 		descr = ["loud","stripey", "important", "scratchy", "warm"],
 		color = colorOptions[_getRandInt(colorOptions.size())],
-		nodePath="PantsSpatial/plaidpants2"
+		nodePath="PantsSpatial/plaidpants2/Cylinder"
+	}
+	
+	var sunglassesObject = {
+		type = "sunglasses",
+		descr = ["loud","stripey", "important", "scratchy", "warm"],
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="SunglassesSpatial/sunglasses/Sphere"
 	}
 	
 	_setColor(tubaObject)
 	_setColor(pantsObject)
-	var Scenarios = [tubaObject, pantsObject]
+	_setColor(sunglassesObject)
+	var Scenarios = [tubaObject, pantsObject, sunglassesObject]
 	#When we have multiple objects
 	desiredObject = Scenarios[_getRandInt(Scenarios.size())]
 	
@@ -74,7 +82,7 @@ func _setColor(thingy):
 	if (thingy.color == "green"):
 		material.albedo_color = Color(r1, 1, r2)
 		
-	get_node(thingy.nodePath)._setColor(material.albedo_color)
+	get_node(thingy.nodePath).set_surface_material(0, material)
 	
 #Will never return MaxNum, but will return all ints up to it
 func _getRandInt(maxNum):

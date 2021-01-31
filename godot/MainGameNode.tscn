@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://MainGameNode.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://plaidpants2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://PantsSpatial.gd" type="Script" id=11]
 [ext_resource path="res://assets/gamebg.png" type="Texture" id=12]
+[ext_resource path="res://sunglasses.tscn" type="PackedScene" id=13]
+[ext_resource path="res://SunglassesSpatial.gd" type="Script" id=14]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 60, 2, 60 )
@@ -47,6 +49,8 @@ albedo_texture = ExtResource( 8 )
 uv1_scale = Vector3( 40, 8, 1 )
 
 [sub_resource type="CylinderShape" id=11]
+
+[sub_resource type="CylinderShape" id=12]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -127,5 +131,18 @@ transform = Transform( -0.0102658, 0, 0.299824, 0, 0.3, 0, -0.299824, 0, -0.0102
 [node name="CollisionShape" type="CollisionShape" parent="PantsSpatial/plaidpants2/Area"]
 transform = Transform( 5, 0, -1.19209e-07, 0, 5, 0, 0, 0, 4, 0.439478, -9.9585, 1.89769 )
 shape = SubResource( 11 )
+
+[node name="SunglassesSpatial" type="Spatial" parent="."]
+script = ExtResource( 14 )
+
+[node name="sunglasses" parent="SunglassesSpatial" instance=ExtResource( 13 )]
+transform = Transform( 0.077719, 0, 0.0629266, 0, 0.1, 0, -0.0629266, 0, 0.077719, 0.609084, 0.789534, 0 )
+
+[node name="Area" type="Area" parent="SunglassesSpatial/sunglasses"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SunglassesSpatial/sunglasses/Area"]
+transform = Transform( 4, 0, 1.3113e-06, 0, 1, 0, -1.3113e-06, 0, 4, -1.55578, 0.442008, 1.9215 )
+shape = SubResource( 12 )
 [connection signal="input_event" from="TubaSpatial/TubaMesh/Area" to="TubaSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="PantsSpatial/plaidpants2/Area" to="PantsSpatial" method="_on_Area_input_event"]
+[connection signal="input_event" from="SunglassesSpatial/sunglasses/Area" to="SunglassesSpatial" method="_on_Area_input_event"]
