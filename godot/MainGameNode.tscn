@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://MainGameNode.gd" type="Script" id=2]
 [ext_resource path="res://TubaSpatial.gd" type="Script" id=3]
 [ext_resource path="res://assets/tuba.tscn" type="PackedScene" id=4]
 [ext_resource path="res://TubaMesh.gd" type="Script" id=5]
+[ext_resource path="res://bar.glb" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 60, 2, 60 )
@@ -26,7 +27,7 @@ size = Vector3( 0.4, 1.6, 6 )
 script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.0608305, 0.119587, -0.990958, 0.0172358, 0.992775, 0.118749, 0.997999, -0.00985643, -0.0624522, -3.08534, 1.65078, 0 )
+transform = Transform( -0.0608305, 0.119587, -0.990958, 0.0172358, 0.992775, 0.118748, 0.997999, -0.00985646, -0.0624522, -3.44314, 2.22849, 0 )
 
 [node name="TubaSpatial" type="Spatial" parent="."]
 script = ExtResource( 3 )
@@ -63,20 +64,17 @@ shadow_enabled = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.6, 0 )
 shape = SubResource( 4 )
 
-[node name="BarMesh" type="MeshInstance" parent="Bar"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.6, 0 )
-mesh = SubResource( 5 )
-skin = SubResource( 6 )
-material/0 = null
+[node name="bar" parent="Bar" instance=ExtResource( 6 )]
+transform = Transform( 2.38498e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, 2.38498e-09, 1.2664, 0.803675, -0.173548 )
 
-[node name="Bar2" type="StaticBody" parent="."]
+[node name="Background" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43696, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Bar2"]
+[node name="CollisionShape" type="CollisionShape" parent="Background"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.6, 0 )
 shape = SubResource( 4 )
 
-[node name="WallMesh" type="MeshInstance" parent="Bar2"]
+[node name="WallMesh" type="MeshInstance" parent="Background"]
 transform = Transform( 1, 0, 0, 0, 10, 0, 0, 0, 10, 1, 0.6, 0 )
 mesh = SubResource( 5 )
 skin = SubResource( 6 )
