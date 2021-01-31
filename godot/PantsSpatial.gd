@@ -1,6 +1,6 @@
 extends Spatial
 
-var myType="tuba"
+var myType="pants"
 
 # Declare member variables here. Examples:
 # var a = 2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://plaidpants.glb" type="PackedScene" id=2]
 [ext_resource path="res://assets/slaf_title.png" type="Texture" id=3]
 [ext_resource path="res://assets/credits.png" type="Texture" id=4]
 [ext_resource path="res://assets/new.png" type="Texture" id=5]
@@ -66,3 +67,6 @@ margin_top = 132.0
 margin_right = 256.0
 margin_bottom = 260.0
 texture = ExtResource( 4 )
+
+[node name="plaidpants" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06052, 0.106994, -4.44288 )
