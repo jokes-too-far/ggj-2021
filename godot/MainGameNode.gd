@@ -16,17 +16,23 @@ var dialogMadlibs = [
 	"I lost it, and all I remember is it's",
 	"Why we gotta go through all this? Look for"
 ]
+var Scenarios
 var desiredObject
 var promptCount = -1
 var colorOptions = ["red", "blue", "green"]
+var currentScore = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Put some color on that tuba
+	get_node("HUD").set_Score(str(currentScore))
 	randomize()
+	_new_Customer_Appears()
+
+func _new_Customer_Appears():
 	_initializeScenarios()
 	_displayLostItemPrompt()
-
+	
 
 func _initializeScenarios():
 	
@@ -83,14 +89,14 @@ func _initializeScenarios():
 	}
 	
 	
-	var Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject, highheelObject,phoneObject,
+	Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject, highheelObject,phoneObject,
 	walletObject,peglegObject]
 	for x in Scenarios:
 		_setColor(x)
 		x.descr = _shuffleList(x.descr)
 	
-	#When we have multiple objects
 	desiredObject = Scenarios[_getRandInt(Scenarios.size())]
+	#When we have multiple objects
 	
 	#desiredObject = tubaObject #because we have 1 option right now
 	
@@ -137,10 +143,16 @@ func _getRandInt(maxNum):
 	
 func _chooseItem(type):
 	if (desiredObject.type == type):
-		get_node("HUD").show_Message("That'sh it! Thanks bruh...err...y'know, you. " +
-		"Thanks. Gotta go, hangover's killing me.")
+		get_node("HUD").show_Message("That'sh it! Thanks bruh...Gotta go, hangover's killing me.")
+		currentScore = currentScore + 5
+		promptCount = 0
+		get_node("HUD").set_Score(str(currentScore))
+		_new_Customer_Appears()
+		
 	else:
 		_displayLostItemPrompt()
+		currentScore = currentScore -1
+		get_node("HUD").set_Score(str(currentScore))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

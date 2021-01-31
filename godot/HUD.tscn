@@ -25,3 +25,29 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ScoreBox" type="MarginContainer" parent="."]
+margin_left = 765.0
+margin_top = 513.0
+margin_right = 1130.0
+margin_bottom = 582.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreBox"]
+margin_right = 365.0
+margin_bottom = 69.0
+
+[node name="Label" type="Label" parent="ScoreBox/HBoxContainer"]
+margin_top = 27.0
+margin_right = 70.0
+margin_bottom = 41.0
+text = "Yelp score:"
+
+[node name="Score" type="Label" parent="ScoreBox/HBoxContainer"]
+margin_left = 74.0
+margin_top = 27.0
+margin_right = 134.0
+margin_bottom = 41.0
+text = "scoretext"
