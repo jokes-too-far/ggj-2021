@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/wood.png-3f3ec655eb8f21d9fa2e2a42778fe351.s3tc.stex"
-path.etc2="res://.import/wood.png-3f3ec655eb8f21d9fa2e2a42778fe351.etc2.stex"
+path.s3tc="res://.import/texture_bricks_depth.jpg-434c4291011baec118b257c76d0d706d.s3tc.stex"
+path.etc2="res://.import/texture_bricks_depth.jpg-434c4291011baec118b257c76d0d706d.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/wood.png"
-dest_files=[ "res://.import/wood.png-3f3ec655eb8f21d9fa2e2a42778fe351.s3tc.stex", "res://.import/wood.png-3f3ec655eb8f21d9fa2e2a42778fe351.etc2.stex" ]
+source_file="res://assets/texture_bricks_depth.jpg"
+dest_files=[ "res://.import/texture_bricks_depth.jpg-434c4291011baec118b257c76d0d706d.s3tc.stex", "res://.import/texture_bricks_depth.jpg-434c4291011baec118b257c76d0d706d.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
