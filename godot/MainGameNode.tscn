@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://MainGameNode.gd" type="Script" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://SunglassesSpatial.gd" type="Script" id=14]
 [ext_resource path="res://Earring.tscn" type="PackedScene" id=15]
 [ext_resource path="res://EarringSpatial.gd" type="Script" id=16]
+[ext_resource path="res://HighHeelSpatial.gd" type="Script" id=17]
+[ext_resource path="res://highheel.tscn" type="PackedScene" id=18]
+[ext_resource path="res://phone.tscn" type="PackedScene" id=19]
+[ext_resource path="res://PhoneSpatial.gd" type="Script" id=20]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 60, 2, 60 )
@@ -55,6 +59,10 @@ uv1_scale = Vector3( 40, 8, 1 )
 [sub_resource type="CylinderShape" id=12]
 
 [sub_resource type="SphereShape" id=13]
+
+[sub_resource type="SphereShape" id=14]
+
+[sub_resource type="BoxShape" id=15]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -160,7 +168,33 @@ transform = Transform( -0.0760998, 0.0348827, 0.0546994, -0.0428003, 0.0363678, 
 [node name="CollisionShape" type="CollisionShape" parent="EarringSpatial/earring/Area"]
 transform = Transform( 2, -2.38419e-07, 1.63913e-07, 2.38419e-07, 2, -7.45058e-08, -1.63913e-07, 7.45058e-08, 2, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="HighHeelSpatial" type="Spatial" parent="."]
+script = ExtResource( 17 )
+
+[node name="highheel" parent="HighHeelSpatial" instance=ExtResource( 18 )]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.762143, 0.123966, -1.4107 )
+
+[node name="Area" type="Area" parent="HighHeelSpatial/highheel"]
+
+[node name="CollisionShape" type="CollisionShape" parent="HighHeelSpatial/highheel/Area"]
+transform = Transform( 2, 0, 0, 0, 1.26982, -2.66157, 0, 0.798472, 4.23273, 0, 0.672194, -1.35293 )
+shape = SubResource( 14 )
+
+[node name="PhoneSpatial" type="Spatial" parent="."]
+script = ExtResource( 20 )
+
+[node name="phone v2" parent="PhoneSpatial" instance=ExtResource( 19 )]
+transform = Transform( -0.0264139, 0.00734208, 0.0418139, 0.0151025, 0.0476502, 0.00117337, -0.0396765, 0.0132497, -0.0273902, 0.754732, 0.305237, 1.67632 )
+
+[node name="Area" type="Area" parent="PhoneSpatial/phone v2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PhoneSpatial/phone v2/Area"]
+transform = Transform( 2, 0, 0, 0, 5, 0, 0, 0, 2, 0, 0, 0 )
+shape = SubResource( 15 )
 [connection signal="input_event" from="TubaSpatial/TubaMesh/Area" to="TubaSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="PantsSpatial/plaidpants2/Area" to="PantsSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="SunglassesSpatial/sunglasses/Area" to="SunglassesSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="EarringSpatial/earring/Area" to="EarringSpatial" method="_on_Area_input_event"]
+[connection signal="input_event" from="HighHeelSpatial/highheel/Area" to="HighHeelSpatial" method="_on_Area_input_event"]
+[connection signal="input_event" from="PhoneSpatial/phone v2/Area" to="PhoneSpatial" method="_on_Area_input_event"]
