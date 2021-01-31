@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/NoRelation - Club Can't Handle Billy.wav-b27b477d54621060c84f01dc729e7a19.sample"
+
+[deps]
+
+source_file="res://assets/NoRelation - Club Can't Handle Billy.wav"
+dest_files=[ "res://.import/NoRelation - Club Can't Handle Billy.wav-b27b477d54621060c84f01dc729e7a19.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
