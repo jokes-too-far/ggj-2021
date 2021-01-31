@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://MainGameNode.gd" type="Script" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://highheel.tscn" type="PackedScene" id=18]
 [ext_resource path="res://phone.tscn" type="PackedScene" id=19]
 [ext_resource path="res://PhoneSpatial.gd" type="Script" id=20]
+[ext_resource path="res://wallet.tscn" type="PackedScene" id=21]
+[ext_resource path="res://WalletSpatial.gd" type="Script" id=22]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 60, 2, 60 )
@@ -63,6 +65,8 @@ uv1_scale = Vector3( 40, 8, 1 )
 [sub_resource type="SphereShape" id=14]
 
 [sub_resource type="BoxShape" id=15]
+
+[sub_resource type="BoxShape" id=16]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -192,9 +196,22 @@ transform = Transform( -0.0264139, 0.00734208, 0.0418139, 0.0151025, 0.0476502, 
 [node name="CollisionShape" type="CollisionShape" parent="PhoneSpatial/phone v2/Area"]
 transform = Transform( 2, 0, 0, 0, 5, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 15 )
+
+[node name="WalletSpatial" type="Spatial" parent="."]
+script = ExtResource( 22 )
+
+[node name="wallet" parent="WalletSpatial" instance=ExtResource( 21 )]
+transform = Transform( -0.0162569, 0, 0.0986697, 0, 0.1, 0, -0.0986697, 0, -0.0162569, 0.925479, 0.732013, 1.46873 )
+
+[node name="Area" type="Area" parent="WalletSpatial/wallet"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WalletSpatial/wallet/Area"]
+transform = Transform( 2.5, 0, 8.9407e-08, 0, 1.5, 0, -1.49012e-07, 0, 1.5, -1.00693, 0.0665364, -0.165902 )
+shape = SubResource( 16 )
 [connection signal="input_event" from="TubaSpatial/TubaMesh/Area" to="TubaSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="PantsSpatial/plaidpants2/Area" to="PantsSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="SunglassesSpatial/sunglasses/Area" to="SunglassesSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="EarringSpatial/earring/Area" to="EarringSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="HighHeelSpatial/highheel/Area" to="HighHeelSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="PhoneSpatial/phone v2/Area" to="PhoneSpatial" method="_on_Area_input_event"]
+[connection signal="input_event" from="WalletSpatial/wallet/Area" to="WalletSpatial" method="_on_Area_input_event"]

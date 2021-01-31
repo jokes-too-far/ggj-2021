@@ -69,9 +69,16 @@ func _initializeScenarios():
 		color = colorOptions[_getRandInt(colorOptions.size())],
 		nodePath="PhoneSpatial/phone v2/Body"
 	}
+	var walletObject = {
+		type = "wallet",
+		descr = ["leather","expensive", "important", "small", "bendy"],
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="WalletSpatial/wallet/Cube"
+	}
 	
 	
-	var Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject, highheelObject,phoneObject]
+	var Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject, highheelObject,phoneObject,
+	walletObject]
 	for x in Scenarios:
 		_setColor(x)
 		x.descr = _shuffleList(x.descr)
