@@ -14,7 +14,8 @@ var dialogMadlibs = [
 	"My thing is",
 	"Umm...maybe it's",
 	"I just 'membered!  It's ",
-	"I lost it, and all I remember is it's"
+	"I lost it, and all I remember is it's",
+	"Why we gotta go through all this? Look for"
 ]
 var desiredObject
 var promptCount = -1
@@ -31,14 +32,17 @@ func _ready():
 
 func _initializeScenarios():
 	
-	var randnbr = _getRandInt(colorOptions.size())
-	print(randnbr)
-	print(colorOptions.size())
-	var mycolor = colorOptions[randnbr]
 	var tubaObject = {
 		type = "tuba",
 		descr = ["loud","shiny", "hard", "big", "breakable"],
-		color = mycolor,
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="TubaSpatial/TubaMesh/tuba/SketchUp"
+	}
+	
+	var pantsObject = {
+		type = "pants",
+		descr = ["loud","stripey", "important", "scratchy", "warm"],
+		color = colorOptions[_getRandInt(colorOptions.size())],
 		nodePath="TubaSpatial/TubaMesh/tuba/SketchUp"
 	}
 	desiredObject = tubaObject #because we have 1 option right now
@@ -76,6 +80,8 @@ func _chooseItem(type):
 	if (desiredObject.type == type):
 		get_node("HUD").show_Message("That'sh it! Thanks bruh...err...y'know, you. " +
 		"Thanks. Gotta go, hangover's killing me.")
+	else:
+		_displayLostItemPrompt()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
