@@ -136,13 +136,13 @@ transform = Transform( -0.0776457, 0, -0.289778, 0, 0.3, 0, 0.289778, 0, -0.0776
 script = ExtResource( 11 )
 
 [node name="plaidpants2" parent="PantsSpatial" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -1.15256, 0, 0.308827 )
+transform = Transform( 0.624511, 0.765076, -0.156982, -0.135536, 0.304112, 0.942945, 0.769165, -0.567603, 0.293617, -1.15256, -5.77775, 0.308827 )
 
 [node name="Area" type="Area" parent="PantsSpatial/plaidpants2"]
 transform = Transform( -0.0102658, 0, 0.299824, 0, 0.3, 0, -0.299824, 0, -0.0102658, -0.55387, 1.84558, 0.507865 )
 
 [node name="CollisionShape" type="CollisionShape" parent="PantsSpatial/plaidpants2/Area"]
-transform = Transform( 5, 0, -1.19209e-07, 0, 5, 0, 0, 0, 4, 0.439478, -9.9585, 1.89769 )
+transform = Transform( 3, -8.9407e-08, 2.01166e-07, -1.04308e-07, 6, -1.19209e-07, -2.23517e-07, 0, 3, 0.420165, -10.2663, 1.77143 )
 shape = SubResource( 11 )
 
 [node name="SunglassesSpatial" type="Spatial" parent="."]
