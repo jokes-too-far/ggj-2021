@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://MainGameNode.gd" type="Script" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://PhoneSpatial.gd" type="Script" id=20]
 [ext_resource path="res://wallet.tscn" type="PackedScene" id=21]
 [ext_resource path="res://WalletSpatial.gd" type="Script" id=22]
+[ext_resource path="res://PeglegSpatial.gd" type="Script" id=23]
+[ext_resource path="res://pegleg.tscn" type="PackedScene" id=24]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 60, 2, 60 )
@@ -67,6 +69,8 @@ uv1_scale = Vector3( 40, 8, 1 )
 [sub_resource type="BoxShape" id=15]
 
 [sub_resource type="BoxShape" id=16]
+
+[sub_resource type="CylinderShape" id=17]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -140,13 +144,13 @@ transform = Transform( -0.0776457, 0, -0.289778, 0, 0.3, 0, 0.289778, 0, -0.0776
 script = ExtResource( 11 )
 
 [node name="plaidpants2" parent="PantsSpatial" instance=ExtResource( 10 )]
-transform = Transform( 0.624511, 0.765076, -0.156982, -0.135536, 0.304112, 0.942945, 0.769165, -0.567603, 0.293617, -1.15256, -5.77775, 0.308827 )
+transform = Transform( 0.612309, 0.786489, -0.0806909, -0.168586, 0.229596, 0.958574, 0.772434, -0.57334, 0.273175, -5.67863, -6.15569, 1.52158 )
 
 [node name="Area" type="Area" parent="PantsSpatial/plaidpants2"]
 transform = Transform( -0.0102658, 0, 0.299824, 0, 0.3, 0, -0.299824, 0, -0.0102658, -0.55387, 1.84558, 0.507865 )
 
 [node name="CollisionShape" type="CollisionShape" parent="PantsSpatial/plaidpants2/Area"]
-transform = Transform( 3, -8.9407e-08, 2.01166e-07, -1.04308e-07, 6, -1.19209e-07, -2.23517e-07, 0, 3, 0.420165, -10.2663, 1.77143 )
+transform = Transform( 3, -3.57628e-07, 2.08616e-07, -5.96046e-08, 6, -1.19209e-07, -1.49012e-07, 0, 3, 0.420165, -10.2663, 1.77143 )
 shape = SubResource( 11 )
 
 [node name="SunglassesSpatial" type="Spatial" parent="."]
@@ -208,6 +212,18 @@ transform = Transform( -0.0162569, 0, 0.0986697, 0, 0.1, 0, -0.0986697, 0, -0.01
 [node name="CollisionShape" type="CollisionShape" parent="WalletSpatial/wallet/Area"]
 transform = Transform( 2.5, 0, 8.9407e-08, 0, 1.5, 0, -1.49012e-07, 0, 1.5, -1.00693, 0.0665364, -0.165902 )
 shape = SubResource( 16 )
+
+[node name="PeglegSpatial" type="Spatial" parent="."]
+script = ExtResource( 23 )
+
+[node name="pegleg" parent="PeglegSpatial" instance=ExtResource( 24 )]
+transform = Transform( -0.149658, 0.0100481, -0.00127779, 0.00127777, 0.0375, 0.145231, 0.0100481, 0.144889, -0.0375, 0.551269, 1.09826, 2.02476 )
+
+[node name="Area" type="Area" parent="PeglegSpatial/pegleg"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PeglegSpatial/pegleg/Area"]
+transform = Transform( 1.39351, -0.306062, -0.0583297, -0.0832732, -0.0514075, -0.998146, 0.105873, 3.98794, -0.0173434, 0.0237408, 0.0286083, -2.55505 )
+shape = SubResource( 17 )
 [connection signal="input_event" from="TubaSpatial/TubaMesh/Area" to="TubaSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="PantsSpatial/plaidpants2/Area" to="PantsSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="SunglassesSpatial/sunglasses/Area" to="SunglassesSpatial" method="_on_Area_input_event"]
@@ -215,3 +231,4 @@ shape = SubResource( 16 )
 [connection signal="input_event" from="HighHeelSpatial/highheel/Area" to="HighHeelSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="PhoneSpatial/phone v2/Area" to="PhoneSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="WalletSpatial/wallet/Area" to="WalletSpatial" method="_on_Area_input_event"]
+[connection signal="input_event" from="PeglegSpatial/pegleg/Area" to="PeglegSpatial" method="_on_Area_input_event"]

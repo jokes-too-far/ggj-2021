@@ -75,10 +75,16 @@ func _initializeScenarios():
 		color = colorOptions[_getRandInt(colorOptions.size())],
 		nodePath="WalletSpatial/wallet/Cube"
 	}
+	var peglegObject = {
+		type = "pegleg",
+		descr = ["wooden","foot-thingy", "important", "pinchy", "hard"],
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="PeglegSpatial/pegleg/Cylinder"
+	}
 	
 	
 	var Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject, highheelObject,phoneObject,
-	walletObject]
+	walletObject,peglegObject]
 	for x in Scenarios:
 		_setColor(x)
 		x.descr = _shuffleList(x.descr)
