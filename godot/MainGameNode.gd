@@ -71,7 +71,7 @@ func _initializeScenarios():
 	}
 	var phoneObject = {
 		type = "phone",
-		descr = ["loud","a head-thing", "ringy", "important", "expensive", "breakable"],
+		descr = ["loud","a head-thing", "ringy", "important","breakable"],
 		color = colorOptions[_getRandInt(colorOptions.size())],
 		nodePath="PhoneSpatial/phone v2/Body"
 	}
@@ -87,10 +87,16 @@ func _initializeScenarios():
 		color = colorOptions[_getRandInt(colorOptions.size())],
 		nodePath="PeglegSpatial/pegleg/Cylinder"
 	}
+	var santahatObject = {
+		type = "santahat",
+		descr = ["head-thing","soft", "warm", "festive"],
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="SantaSpatial/santahat/Torus"
+	}
 	
 	
 	Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject, highheelObject,phoneObject,
-	walletObject,peglegObject]
+	walletObject,peglegObject,santahatObject]
 	for x in Scenarios:
 		_setColor(x)
 		x.descr = _shuffleList(x.descr)
@@ -156,7 +162,7 @@ func _chooseItem(type):
 		
 	else:
 		_displayLostItemPrompt()
-		Global.currentScore = Global.currentScore -1
+		Global.currentScore = Global.currentScore -promptCount
 		get_node("HUD").set_Score(str(Global.currentScore))
 		
 		
