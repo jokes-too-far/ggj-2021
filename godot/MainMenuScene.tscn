@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Button.gd" type="Script" id=1]
 [ext_resource path="res://plaidpants.glb" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/wood.png" type="Texture" id=6]
 [ext_resource path="res://MusicPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://MainMenuScene.gd" type="Script" id=8]
+[ext_resource path="res://CreditsButton.gd" type="Script" id=9]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 8 )
@@ -70,6 +71,16 @@ margin_top = 132.0
 margin_right = 256.0
 margin_bottom = 260.0
 texture = ExtResource( 4 )
+
+[node name="CreditsButton" type="Button" parent="MainGameNode/MainTitle/HBoxContainer/VBoxContainer/Credits"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 12.0
+margin_bottom = 20.0
+icon = ExtResource( 4 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="plaidpants" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06052, 0.106994, -4.44288 )

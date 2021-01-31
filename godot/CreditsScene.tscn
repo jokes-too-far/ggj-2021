@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://CreditsDoneButton.gd" type="Script" id=1]
+[ext_resource path="res://plaidpants.glb" type="PackedScene" id=2]
+[ext_resource path="res://ScoreFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://MusicPlayerBillyPlain.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/NoRelation - Shutting Down Get Out(remix).wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/wood.png" type="Texture" id=6]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainGameNode" type="MarginContainer" parent="."]
+margin_right = 1200.0
+margin_bottom = 1168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainTitle" type="TextureRect" parent="MainGameNode"]
+margin_right = 1200.0
+margin_bottom = 1168.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGameNode/MainTitle"]
+margin_right = 730.0
+margin_bottom = 456.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MainGameNode/MainTitle/HBoxContainer"]
+margin_bottom = 456.0
+
+[node name="Label" type="Label" parent="MainGameNode/MainTitle/HBoxContainer"]
+margin_left = 4.0
+margin_top = 221.0
+margin_right = 4.0
+margin_bottom = 235.0
+
+[node name="CreditsDoneButton" type="Button" parent="MainGameNode/MainTitle"]
+margin_left = 131.0
+margin_top = 327.0
+margin_right = 586.0
+margin_bottom = 446.0
+custom_fonts/font = ExtResource( 3 )
+text = "Cool, let's play"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainGameNode/MainTitle"]
+margin_right = 1200.0
+margin_bottom = 313.0
+custom_fonts/font = ExtResource( 3 )
+text = "\"Sloshed & Found\" was created by Jokes Too Far for the 2021 STL Global Game Jam
+Peter Zylka - Programming
+Tim Herbig (DJ No Relation) - Music
+Andrew Herbig (no relation) - Art
+Becky Asbury - Programming, writing, and misc
+Evan Cobb - Operations
+Sam Jantz - Tuba
+Check out our other games at https://jokes-too-far.itch.io !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plaidpants" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06052, 0.106994, -4.44288 )
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 4 )]
+stream = ExtResource( 5 )
+autoplay = true
