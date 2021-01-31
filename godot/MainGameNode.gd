@@ -20,12 +20,11 @@ var Scenarios
 var desiredObject
 var promptCount = -1
 var colorOptions = ["red", "blue", "green"]
-var currentScore = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Put some color on that tuba
-	get_node("HUD").set_Score(str(currentScore))
+	get_node("HUD").set_Score(str(Global.currentScore))
 	randomize()
 	_new_Customer_Appears()
 
@@ -144,16 +143,16 @@ func _getRandInt(maxNum):
 func _chooseItem(type):
 	if (desiredObject.type == type):
 		get_node("HUD").show_Message("That'sh it! Thanks bruh...Gotta go, hangover's killing me.")
-		currentScore = currentScore + 5
+		Global.currentScore = Global.currentScore + 5
 		get_tree().change_scene("res://LevelStartScene.tscn")
 		promptCount = 0
-		get_node("HUD").set_Score(str(currentScore))
+		get_node("HUD").set_Score(str(Global.currentScore))
 		_new_Customer_Appears()
 		
 	else:
 		_displayLostItemPrompt()
-		currentScore = currentScore -1
-		get_node("HUD").set_Score(str(currentScore))
+		Global.currentScore = Global.currentScore -1
+		get_node("HUD").set_Score(str(Global.currentScore))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
