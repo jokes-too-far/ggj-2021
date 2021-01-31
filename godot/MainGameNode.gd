@@ -126,12 +126,13 @@ func _setColor(thingy):
 	randomize()
 	var r1 = rand_range(0.0, 0.2)
 	var r2 = rand_range(0.0, 0.2)
+	var chosen = rand_range(0.5, 0.9)
 	if (thingy.color == "blue"):
-		material.albedo_color = Color(r1, r2, 1)
+		material.albedo_color = Color(r1, r2, chosen)
 	if (thingy.color == "red"):
-		material.albedo_color = Color(1, r1, r2)
+		material.albedo_color = Color(chosen, r1, r2)
 	if (thingy.color == "green"):
-		material.albedo_color = Color(r1, 1, r2)
+		material.albedo_color = Color(r1, chosen, r2)
 		
 	get_node(thingy.nodePath).set_surface_material(0, material)
 	
@@ -145,7 +146,7 @@ func _chooseItem(type):
 	if (desiredObject.type == type):
 		$HUD.show_Message("")
 		$HUD.show_BigMessage("That'sh it! Thanks bruh...")
-		Global.currentScore = Global.currentScore + 3
+		Global.currentScore = Global.currentScore + 2
 		get_node("HUD").set_Score(str(Global.currentScore))
 		timer = Timer.new()
 		add_child(timer)
