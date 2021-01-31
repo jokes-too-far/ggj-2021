@@ -20,10 +20,6 @@ config/description="Global Game Jam 2021 - Theme:  Lost and Found"
 run/main_scene="res://MainMenuScene.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-MusicPlayer="*res://MusicPlayer.tscn"
-
 [rendering]
 
 environment/default_environment="res://default_env.tres"

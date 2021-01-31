@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Area.gd" type="Script" id=1]
 [ext_resource path="res://MainGameNode.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://WalletSpatial.gd" type="Script" id=22]
 [ext_resource path="res://PeglegSpatial.gd" type="Script" id=23]
 [ext_resource path="res://pegleg.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/NoRelation - Club Can't Handle Billy(Candlelight).wav" type="AudioStream" id=25]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 60, 2, 60 )
@@ -224,6 +225,10 @@ transform = Transform( -0.149658, 0.0100481, -0.00127779, 0.00127777, 0.0375, 0.
 [node name="CollisionShape" type="CollisionShape" parent="PeglegSpatial/pegleg/Area"]
 transform = Transform( 1.39351, -0.306062, -0.0583297, -0.0832732, -0.0514075, -0.998146, 0.105873, 3.98794, -0.0173434, 0.0237408, 0.0286083, -2.55505 )
 shape = SubResource( 17 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+autoplay = true
 [connection signal="input_event" from="TubaSpatial/TubaMesh/Area" to="TubaSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="PantsSpatial/plaidpants2/Area" to="PantsSpatial" method="_on_Area_input_event"]
 [connection signal="input_event" from="SunglassesSpatial/sunglasses/Area" to="SunglassesSpatial" method="_on_Area_input_event"]
