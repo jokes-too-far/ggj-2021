@@ -57,9 +57,15 @@ func _initializeScenarios():
 		color = colorOptions[_getRandInt(colorOptions.size())],
 		nodePath="EarringSpatial/earring/earring"
 	}
+	var highheelObject = {
+		type = "highheel",
+		descr = ["pinchy","a foot-thing", "pretty", "the other one", "tall"],
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="HighHeelSpatial/highheel/Cube"
+	}
 	
 	
-	var Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject]
+	var Scenarios = [tubaObject, pantsObject, sunglassesObject,earringObject, highheelObject]
 	for x in Scenarios:
 		_setColor(x)
 		x.descr = _shuffleList(x.descr)
