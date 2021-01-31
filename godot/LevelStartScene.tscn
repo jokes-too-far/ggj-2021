@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://StartLevelButton.gd" type="Script" id=1]
 [ext_resource path="res://plaidpants.glb" type="PackedScene" id=2]
 [ext_resource path="res://ScoreFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://MusicPlayerBillyPlain.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/NoRelation - Shutting Down Get Out(remix).wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/wood.png" type="Texture" id=6]
 
 [node name="Node2D" type="Node2D"]
@@ -65,3 +67,7 @@ __meta__ = {
 
 [node name="plaidpants" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06052, 0.106994, -4.44288 )
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 4 )]
+stream = ExtResource( 5 )
+autoplay = true

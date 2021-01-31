@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Button.gd" type="Script" id=1]
 [ext_resource path="res://plaidpants.glb" type="PackedScene" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://assets/new.png" type="Texture" id=5]
 [ext_resource path="res://assets/wood.png" type="Texture" id=6]
 [ext_resource path="res://MusicPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://MainMenuScene.gd" type="Script" id=8]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="MainGameNode" type="MarginContainer" parent="."]
 margin_right = 1200.0
