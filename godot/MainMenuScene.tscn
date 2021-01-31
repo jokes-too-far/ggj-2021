@@ -40,12 +40,21 @@ texture = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainGameNode/MainTitle/HBoxContainer"]
 margin_left = 474.0
-margin_right = 742.0
+margin_right = 730.0
 margin_bottom = 456.0
 
-[node name="Button" type="Button" parent="MainGameNode/MainTitle/HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MainGameNode/MainTitle/HBoxContainer/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 128.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MainGameNode/MainTitle/HBoxContainer/VBoxContainer/TextureRect"]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 268.0
-margin_bottom = 134.0
+margin_bottom = 131.0
 icon = ExtResource( 5 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -53,7 +62,7 @@ __meta__ = {
 }
 
 [node name="Credits" type="TextureRect" parent="MainGameNode/MainTitle/HBoxContainer/VBoxContainer"]
-margin_top = 138.0
-margin_right = 268.0
-margin_bottom = 266.0
+margin_top = 132.0
+margin_right = 256.0
+margin_bottom = 260.0
 texture = ExtResource( 4 )
