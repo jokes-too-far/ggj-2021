@@ -145,7 +145,8 @@ func _chooseItem(type):
 	if (desiredObject.type == type):
 		$HUD.show_Message("")
 		$HUD.show_BigMessage("That'sh it! Thanks bruh...")
-		Global.currentScore = Global.currentScore + 5
+		Global.currentScore = Global.currentScore + 3
+		get_node("HUD").set_Score(str(Global.currentScore))
 		timer = Timer.new()
 		add_child(timer)
 		timer.connect("timeout", self, "_goto_NextLevel")
