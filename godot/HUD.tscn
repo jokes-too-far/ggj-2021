@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Message.gd" type="Script" id=1]
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=2]
@@ -17,6 +17,66 @@ font_data = SubResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 size = 38
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 200
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Init"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("SuccessLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "animate_message"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("SuccessLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SuccessLabel:custom_fonts/font:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 24, 200 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SuccessLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -59,3 +119,20 @@ margin_right = 313.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 3 )
 text = "scoretext"
+
+[node name="SuccessLabel" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 7.0
+margin_top = 141.0
+margin_right = 1603.0
+margin_bottom = 436.0
+custom_fonts/font = SubResource( 4 )
+text = "Hey, all right!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Init"
+anims/Init = SubResource( 5 )
+anims/animate_message = SubResource( 6 )

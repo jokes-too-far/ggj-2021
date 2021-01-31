@@ -20,6 +20,7 @@ var Scenarios
 var desiredObject
 var promptCount = -1
 var colorOptions = ["red", "blue", "green"]
+var timer = Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -142,17 +143,23 @@ func _getRandInt(maxNum):
 	
 func _chooseItem(type):
 	if (desiredObject.type == type):
-		get_node("HUD").show_Message("That'sh it! Thanks bruh...Gotta go, hangover's killing me.")
+		$HUD.show_Message("")
+		$HUD.show_BigMessage("That'sh it! Thanks bruh...")
 		Global.currentScore = Global.currentScore + 5
-		get_tree().change_scene("res://LevelStartScene.tscn")
-		promptCount = 0
-		get_node("HUD").set_Score(str(Global.currentScore))
-		_new_Customer_Appears()
+		timer = Timer.new()
+		add_child(timer)
+		timer.connect("timeout", self, "_goto_NextLevel")
+		timer.set_wait_time(2)
+		timer.start()
 		
 	else:
 		_displayLostItemPrompt()
 		Global.currentScore = Global.currentScore -1
 		get_node("HUD").set_Score(str(Global.currentScore))
+		
+		
+func _goto_NextLevel():
+	get_tree().change_scene("res://LevelStartScene.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
