@@ -1,5 +1,6 @@
 extends Spatial
 
+var myType="tuba"
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -19,5 +20,7 @@ func _ready():
 func _on_Area_input_event(camera, event, click_position, click_normal, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed == true:
-			print("Pressed left mouse button")
-			get_parent().get_node("HUD").show_Message("Uhh, thanks for the tuba I guess?")
+			#get_parent().get_node("HUD").show_Message("Uhh, thanks for the tuba I guess?")
+			#get_parent()._displayLostItemPrompt()
+			#When we have more than 1 object...
+			get_parent()._chooseItem(myType)
