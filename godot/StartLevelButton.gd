@@ -4,4 +4,4 @@ func _ready():
 	self.connect("pressed", self, "_button_pressed")
 
 func _button_pressed():
-		get_tree().change_scene("res://LevelStartScene.tscn")
+		get_tree().change_scene("res://MainGameNode.tscn")

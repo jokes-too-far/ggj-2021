@@ -145,6 +145,7 @@ func _chooseItem(type):
 	if (desiredObject.type == type):
 		get_node("HUD").show_Message("That'sh it! Thanks bruh...Gotta go, hangover's killing me.")
 		currentScore = currentScore + 5
+		get_tree().change_scene("res://LevelStartScene.tscn")
 		promptCount = 0
 		get_node("HUD").set_Score(str(currentScore))
 		_new_Customer_Appears()
