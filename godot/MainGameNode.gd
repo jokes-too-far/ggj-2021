@@ -25,7 +25,6 @@ func _ready():
 	#Put some color on that tuba
 	randomize()
 	_initializeScenarios()
-	_setColor(desiredObject)
 	_displayLostItemPrompt()
 
 
@@ -35,16 +34,18 @@ func _initializeScenarios():
 		type = "tuba",
 		descr = ["loud","shiny", "hard", "big", "breakable"],
 		color = colorOptions[_getRandInt(colorOptions.size())],
-		nodePath="TubaSpatial/TubaMesh/tuba/SketchUp"
+		nodePath="TubaSpatial/TubaMesh/tuba"
 	}
 	
 	var pantsObject = {
 		type = "pants",
 		descr = ["loud","stripey", "important", "scratchy", "warm"],
-		color = "green",
-		nodePath="TubaSpatial/TubaMesh/tuba/SketchUp"
+		color = colorOptions[_getRandInt(colorOptions.size())],
+		nodePath="PantsSpatial/plaidpants2"
 	}
 	
+	_setColor(tubaObject)
+	_setColor(pantsObject)
 	var Scenarios = [tubaObject, pantsObject]
 	#When we have multiple objects
 	desiredObject = Scenarios[_getRandInt(Scenarios.size())]
@@ -72,7 +73,8 @@ func _setColor(thingy):
 		material.albedo_color = Color(1, r1, r2)
 	if (thingy.color == "green"):
 		material.albedo_color = Color(r1, 1, r2)
-	get_node(thingy.nodePath).set_surface_material(0, material)
+		
+	get_node(thingy.nodePath)._setColor(material.albedo_color)
 	
 #Will never return MaxNum, but will return all ints up to it
 func _getRandInt(maxNum):

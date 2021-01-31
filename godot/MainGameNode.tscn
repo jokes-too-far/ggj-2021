@@ -9,7 +9,7 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/texture_bricks.jpg" type="Texture" id=8]
 [ext_resource path="res://assets/texture_wood.png" type="Texture" id=9]
-[ext_resource path="res://plaidpants.glb" type="PackedScene" id=10]
+[ext_resource path="res://plaidpants2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://PantsSpatial.gd" type="Script" id=11]
 [ext_resource path="res://assets/gamebg.png" type="Texture" id=12]
 
@@ -58,7 +58,7 @@ transform = Transform( -0.0608305, 0.119587, -0.990958, 0.0172358, 0.992775, 0.1
 script = ExtResource( 3 )
 
 [node name="TubaMesh" type="MeshInstance" parent="TubaSpatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.03525, -0.225541 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0607243, -1.11716, -0.739819 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 script = ExtResource( 5 )
@@ -115,16 +115,17 @@ material/0 = SubResource( 10 )
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [node name="PantsSpatial" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.861162, -0.0619614, 1.11417 )
+transform = Transform( -0.0776457, 0, -0.289778, 0, 0.3, 0, 0.289778, 0, -0.0776457, -0.138838, 1.93804, 2.11417 )
 script = ExtResource( 11 )
 
-[node name="plaidpants" parent="PantsSpatial" instance=ExtResource( 10 )]
+[node name="plaidpants2" parent="PantsSpatial" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15256, 0, 0.308827 )
+
+[node name="Area" type="Area" parent="PantsSpatial/plaidpants2"]
 transform = Transform( -0.0102658, 0, 0.299824, 0, 0.3, 0, -0.299824, 0, -0.0102658, -0.55387, 1.84558, 0.507865 )
 
-[node name="Area" type="Area" parent="PantsSpatial/plaidpants"]
-
-[node name="CollisionShape" type="CollisionShape" parent="PantsSpatial/plaidpants/Area"]
-transform = Transform( 1, 0, 3.72529e-09, 0, 1.75, 0, -3.72529e-09, 0, 1, 0, -1.30841, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="PantsSpatial/plaidpants2/Area"]
+transform = Transform( 5, 0, -1.19209e-07, 0, 5, 0, 0, 0, 4, 0.439478, -9.9585, 1.89769 )
 shape = SubResource( 11 )
 [connection signal="input_event" from="TubaSpatial/TubaMesh/Area" to="TubaSpatial" method="_on_Area_input_event"]
-[connection signal="input_event" from="PantsSpatial/plaidpants/Area" to="PantsSpatial" method="_on_Area_input_event"]
+[connection signal="input_event" from="PantsSpatial/plaidpants2/Area" to="PantsSpatial" method="_on_Area_input_event"]
